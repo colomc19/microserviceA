@@ -1,0 +1,43 @@
+@TEST_1_ID = f83c2c50-d397-41c2-a715-948d0071c467
+### Request 1: Create a user goal
+
+POST http://localhost:3000/user HTTP/1.1
+content-type: application/json
+
+{
+    "username": "testUser1",
+    "userGoal": "Drink 48 ounces of water per day"
+}
+
+### Request 2: Create a new goal for a different user.
+
+POST http://localhost:3000/user HTTP/1.1
+content-type: application/json
+
+{
+    "username": "testUser2",
+    "userGoal": "Drink 8 cups of water a day."
+}
+
+### Request 3: Get one user goal based on the user's ID
+GET http://localhost:3000/user/{{TEST_1_ID}} HTTP/1.1
+
+
+
+### Request 4: Get all users
+GET http://localhost:3000/user HTTP/1.1
+
+
+### Request 5: Update a goal
+PUT http://localhost:3000/user/{{TEST_1_ID}}  HTTP/1.1
+content-type: application/json
+
+
+{
+    "username": "testUser1",
+    "userGoal": "Drink 54 ounces of water per day"
+}
+
+
+### Request 6: Delete a user's information
+DELETE http://localhost:3000/user/{{TEST_1_ID}} HTTP/1.1
